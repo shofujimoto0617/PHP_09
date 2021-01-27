@@ -18,8 +18,14 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('user.show') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Show to User') }}
+                    <x-jet-nav-link href="{{ route('user.show',auth()->user()->id) }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Home') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Users') }}
                     </x-jet-nav-link>
                 </div>
             </div>

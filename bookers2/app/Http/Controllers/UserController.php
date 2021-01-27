@@ -8,9 +8,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function Show() {
-        $id = Auth::user()->id;
+    public function Show($id) {
         $user = User::find($id);
         return view('user.show', compact('user'));
+    }
+
+    public function Index() {
+        $users = User::all();
+        return view('user.index', compact('users'));
     }
 }

@@ -18,8 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/show', [UserController::class, 'Show'])->name('user.show');
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/user/{id?}', [UserController::class, 'Show'])->name('user.show');
+
+Route::get('/users', [UserController::class, 'Index'])->name('user.index');
+
