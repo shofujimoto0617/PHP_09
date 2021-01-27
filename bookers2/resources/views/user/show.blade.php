@@ -15,7 +15,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Name : {{ $user['name'] }}</h5>
                     <p class="card-text">Introduction : {{ $user['introduction'] }}</p>
-                    <a href="{{ route('profile.show') }}" class="btn btn-primary">Edit Profile</a>
+                    @if (Auth::user() == $user)
+                        <a href="{{ route('profile.show') }}" class="btn btn-primary">Edit Profile</a>
+                    @endif
                 </div>
             </div>
         </div>
