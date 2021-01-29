@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +28,8 @@ Route::get('/user/{id?}', [UserController::class, 'Show'])->name('user.show');
 
 Route::get('/users', [UserController::class, 'Index'])->name('user.index');
 
+Route::post('/book/create', [BookController::class, 'Create'])->name('book.create');
+
+Route::get('/books', [BookController::class, 'Index'])->name('book.index');
+
+Route::get('/book/{id?}', [BookController::class, 'Show'])->name('book.show');
