@@ -9,7 +9,7 @@
 
     
 
-    <div class="py-12">
+    <div class="py-12" style="padding: 10px;">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -25,7 +25,7 @@
                         <img src="{{ (!empty($book->user['profile_photo_path']))? $book->user->profile_photo_path_url:url('upload/no_image.jpg') }}" style="width: 50px; height: 50px;">
                         {{ $book->user->name }}
                     </td>
-                    <td>{{ $book['title'] }}</td>
+                    <td><a href="{{ route('book.show',$book['id']) }}">{{ $book['title'] }}</a></td>
                     <td>{{ $book['body'] }}</td>
                 </tr>
             @endforeach
