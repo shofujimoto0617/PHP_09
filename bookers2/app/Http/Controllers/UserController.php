@@ -12,11 +12,13 @@ class UserController extends Controller
 {
     public function Show($id) {
         $user = User::find($id);
-        return view('user.show', compact('user'));
+        $books = User::find($id)->books;
+        return view('user.show', compact('user','books'));
     }
 
     public function Index() {
         $users = User::all();
-        return view('user.index', compact('users'));
+        $user = Auth::user();
+        return view('user.index', compact('users', 'user'));
     }
 }
